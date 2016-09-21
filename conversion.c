@@ -42,7 +42,7 @@ Question 3:
     {liters = quarts * .9463;
       printf("%4d%16.4lf\n", quarts, liters);
       quarts++;
-    } */
+    } 
 
 
 //Question 4:
