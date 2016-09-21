@@ -3,9 +3,30 @@
      * Name: Mike Zou                                                      *
      * Box(s): 4642                                                        *
      * Assignment: Supplemental Problem 1: Computer a Babysitter's fee     *
-     *      (25% off if name/number does not match assignment)             *
-     * Assignment for <09/16/16>                                           *
      ***********************************************************************/
+     /* Problem: Computing a Babysitter's Fee
+
+A baby sitter charges $2.75 per hour until 9:00 pm (while the kids are still up), 
+$1.75 per hour between 9:00 pm and midnight, and $2.25 per hour after midnight 
+(since late night baby sitting interferes with morning classes).
+
+Write a program that reads four integer values (the sitter's starting time in hours 
+and minutes and the ending time in hours and minutes) and computes the sitter's fee. 
+Assume all times are between 6:00 pm and 6:00 am, and hours should be specified as 
+being between 0 and 12 (inclusive). Hours outside the range of 0 to 12 should be 
+considered invalid.
+
+The hour 6 should be considered as 6:00 pm, when it is entered as a starting time.
+The hour 6 should be considered as 6:00 am, when it is entered as an ending time.
+The following table may clarify allowed time values for this problem.
+
+Starting	Starting	Ending	Ending	Starting	Ending
+Hour	    Minutes	    Hour	Minutes	Time	    time
+8	        0	        3	    30	    8:00pm	    3:30am
+6	        0       	0   	45  	6:00pm  	12:45am
+12      	0	        6   	0	    12:00am    	6:00am
+
+Programming Note: You may NOT use loops or recursion in this program. */
 
     /* *********************************************************************
      * Academic honesty certification:                                     *
