@@ -20,7 +20,6 @@ Question 3: See the code below. */
 
 int main()
 {
-  /*
 //Declaring variables
   int quarts = 1;
   double liters;
@@ -51,27 +50,27 @@ Question 3:
 
   int i = 1;
   rConnect ("/dev/rfcomm0");
-/* (a) for loop that moves Scribbler forward 5 times. 
+/* (a) for loop that moves Scribbler forward 5 times. */
   for (i = 1; i <= 5; i++)
     {
       rForward (.5, 1);
       rForward (0, 0.5); //short pause to see effect more clearly.
     }
-*/
-/* (b) while loop that moves Scribbler in some direction for increasing 
+    
+/* (b) while loop that moves Scribbler in some direction for increasing */
    amount of time 
   while (i <= 5)
     {
       rForward (.5, i/2.0);
       rForward (0, 0.5); //short pause to see effect more clearly.
       i++;
-      } */
-/* (c) for loop that moves Scribbler at changing times.
+      } 
+/* (c) for loop that moves Scribbler at changing times. */
   for (i = 1; i <= 5; i++)
     {
       rForward (i/6.0, 1);
       rForward (0, 0.5); //short pause to see effect more clearly.
-      } */
+      } 
 /* (d) while loop that change both speed than time in the same loop.*/
   for (i = 1; i <= 5; i++)
     {
