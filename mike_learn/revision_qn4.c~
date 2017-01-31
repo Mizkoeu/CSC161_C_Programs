@@ -1,0 +1,13 @@
+#include <stdio.h>
+#include "MyroC.h"
+
+int main()
+{ /*part (a): write a segment of code that determines the average value
+    of Scribbler 2's right light sensor over 6 readings. */
+  rConnect ("/dev/rfcomm0");
+  int avgLight = rGetIRTxt ("right", 6);
+  //part (b)
+
+
+
+}

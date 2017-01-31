@@ -1,0 +1,26 @@
+/* Program illustrating a function prototype near the start of the code
+   and the full function definition near the end.
+*/
+
+#include <stdio.h>
+
+/* function to add 2 to a value and return the result */
+double add2 (double value);   // function prototype, with semi-colon at end
+
+
+int main ()
+{
+  printf ("program illustrating a function prototype\n");
+  int x = 5;
+  double y = add2(x);         // function used
+
+  printf ("x = %d, y = %lf\n", x, y);
+
+  return 0;
+}
+
+/* function to add 2 to a value and return the result */
+double add2 (double value)   // function details given here
+{
+   return 2.0 + value;
+}

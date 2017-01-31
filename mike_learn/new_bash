@@ -1,0 +1,13 @@
+#!/bin/bash
+
+echo "script to print the number of lines for each C program in this directory"
+
+#print table header
+echo "C program          length (lines)"
+
+#cycle through each .c file in the directory
+for prog in `ls *.c`
+   do
+      #apply the wc program to the $prog program
+      echo "$prog:     `wc -l < $prog` lines"
+   done

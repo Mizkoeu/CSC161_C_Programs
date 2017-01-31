@@ -1,0 +1,24 @@
+/********************* Answer for Exam 1 Question 2 ****************
+********************************************************************
+
+2a. Command: mkdir my-projects
+
+2b. This is bacause I set the file permission of robot-moves.c with
+chmod command such that the user's group and everyone else can only
+read and execute the file (5 = 4 + 1) but not write or modify the
+file. Only I, the user, can have access to all three permissions: 
+reading, writing/modifying (including copying) and execution. 
+
+To resolve this particular difficulty, I could use the chmod command
+again to set the permission for the user's group at 7 (all three 
+permissions granted). The corresponding Linux command is as follows:
+
+cd
+cd my-projects
+chmod 775 robot-moves.c
+
+In this way, the user's group, which includes my lab partner, would
+be able to copy the file as she/he wants.
+
+******************************* THE END ***************************/
+

@@ -1,0 +1,46 @@
+#include <stdio.h>
+
+void encrypt (int row, int col)
+{
+    char text[row][col];
+    printf ("Please enter the text to be encoded: ");
+    /* int i = 0;
+    while ((i < row*col) && (ch = getchar ()) != EOF)
+    {
+      text = ch;
+      i++;
+    } */
+    char ch;
+    int m, n;
+    while ((ch = getchar()) != EOF)
+    {
+      ungetc(ch, stdin);
+      for (m = 0; m < row; m++)
+       {
+         for (n = 0; n < col; n++)
+        {
+            if ((ch = getchar ()) != EOF)
+                text[m][n] = getchar ();
+            else break;
+        }}
+        
+      for (n = 0; n < col; n++)
+        {
+           for (m = 0; m < row; m++)
+            {
+              printf ("%c", text[row][col]);
+            }
+        }
+    }
+}
+
+int main ()
+{
+    int row, col;
+    printf ("Enter rectangle size for the encryption (format: row column): ");
+    scanf ("%d%d", &row, &col);
+    
+    encrypt (row, col);
+    
+    return 0;
+}

@@ -1,0 +1,19 @@
+#include <stdio.h>
+
+void intitalizeQueue (string * queue);
+
+int isEmpty (stringQueue queue);
+
+int isFull (stringQueue queue);
+
+int enqueue (stringQueue *queue, char * item);
+
+char * dequeue (stringQueue * queue);
+
+int main()
+{
+
+
+  return 0;
+
+}

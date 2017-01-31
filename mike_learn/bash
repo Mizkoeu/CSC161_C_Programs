@@ -1,0 +1,18 @@
+#!/bin/bash
+#clear the window
+clear
+#print the date
+echo Date is `date`.
+#print a message according to the date
+if ( ((6 < (`date +%k`))) && ((11 >= (`date +%k`))) ); then
+echo good morning
+fi
+if ( ((11 < (`date +%k`))) && ((18 > (`date +%k`))) ); then
+echo good afternoon
+fi 
+if ( ((18 <= (`date +%k`))) && ((22 >= (`date +%k`))) ); then
+echo good evening
+fi
+if ( ((22 < (`date +%k`))) && ((6 >= (`date +%k`))) ); then
+echo YOU SHOULD BE SLEEPING!
+fi

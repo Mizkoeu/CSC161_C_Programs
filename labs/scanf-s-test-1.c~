@@ -1,0 +1,18 @@
+/* program to test skipping of white space by scanf */
+
+#define MaxLen 10
+#include <stdio.h>
+
+int main ()
+{
+  char str [MaxLen];
+  
+  printf ("enter string\n");
+
+  scanf ("%s", str);
+  
+  printf ("'%s'\n", str);
+
+
+  return 0;
+}

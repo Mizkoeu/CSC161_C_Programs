@@ -1,0 +1,23 @@
+#include "MyroC.h"
+#include "eSpeakPackage.h"
+#include "scale-notes.h"
+
+void tune_forward ()
+{
+}
+void tune_backward ()
+{
+}
+void move_clockwise ()
+{
+}
+void move_counter_clockwise ()
+{
+}
+
+int main ()
+{
+  rConnect ("/dev/comm0");
+  eSpeakConnect ();
+  tune_forward (); //Plays tune beginning to end
+  move_clockwise (); // move robot clockwise

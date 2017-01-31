@@ -1,0 +1,138 @@
+     /***********************************************************************
+     * Mike Zou & Eliza Bunnell                                             *
+     * Boxes: 4642 & 3287                                                   *
+     * Assignment name: module 001: Robot Actions Project                   *
+     * Due Tuesday, September 20, 2016                                      *
+     ***********************************************************************/
+
+    /* *********************************************************************
+     * Academic honesty certification:                                     *
+     *                                                                     *
+     *  Written/online sources used:                                       *
+     *  CSC161 readings and labs:                                          *
+     *  By Henry M Walker. Accessed on September 18th, 2016                *  
+     *   CSC161 readings and labs:                                         *
+     *    Sensors for the Scribbler 2 Robot - found at url -               *
+     *      http://www.cs.grinnell.edu/~walker/courses/161.fa16/scribbler2 *
+     *      -sensors.shtml                                                 *
+     *    An Introductoin to Loops in C - founda at url -                  *
+     *      http://www.cs.grinnell.edu/~walker/courses/161.fa16/show-resou *
+     *      rce.php?resourceID=247                                         *
+     *    coins.c function from lab: Exercise on Simulation and More       *
+     *      Program Management: Functions, Value Parameters, and Assertions*
+     *      - found at url -                                               *
+     *      http://www.cs.grinnell.edu/~walker/courses/161.fa16/show-lab-p *
+     *      roject.php?sessionID=32                                        *
+     *      It was used as a guide for our previousTurn counter            *
+     *    MyroC documentation - MyroC.3 Reference Manual - found at url -  *
+     *      http://www.cs.grinnell.edu/~walker/courses/161.fa16//MyroC-doc *
+     *      umentation.php                                                 *
+     *                                                                     *
+     *   Help obtained                                                     *
+     *    none                                                             *
+     *                                                                     *
+     *   Our signatures below confirm that the above list of sources       *
+     *   is complete AND that we have not talked to anyone else            *
+     *   (e.g., CSC 161 students) about the solution to this problem       *
+     *                                                                     *
+     *   Signature: Mike Zou                                               *
+     *              Eliza Bunnell                                          *
+     ***********************************************************************/
+
+/*This program controls the actions of the robot so that it avoids obstacles,
+ beeps and turns when it repeats a turn movement twice in a row, and does a
+ dance after every 10 movements.*/
+
+#include <stdio.h>
+#include "MyroC.h"
+#include "eSpeakPackage.h"
+
+int previousTurn = 0; // keeps track of direction of previous turn
+int action = 0; // keeps track of how many actions the robot has taken
+int counter; // used to repeat body of function
+int i; //used to repeat dance routine
+
+//procedure for the robot's dance routine
+void dance_routine()
+{
+  eSpeakTalk ("I am dancing");
+  for (i = 0; i < 3; i++)
+    {rBackward (.8, .5);
+      rTurnRight (.8, .7);
+      rBackward (.4, .5);
+      rForward (.5, .4);
+      rTurnLeft (.2, 1);
+      previousTurn = 0;
+    }}
+
+//procedure for beep/turn around activity
+void two_turn ()
+{
+  eSpeakTalk ("I am beeping and turning agian");
+  rBeep (1, 880);
+  rTurnRight (.3, 2);
+  previousTurn = 0;
+}
+
+//main procedure that controls the robot's actions
+int main ()
+{
+  rConnect("/dev/rfcomm0");
+  eSpeakConnect ();
+  
+  //repeat infinately
+  for (counter = 0; 1 ; counter++)
+    {
+      int left = rGetIRTxt("left", 3);
+      int right = rGetIRTxt("right", 3);
+                  
+      //this loop  makes the robot dance after every 10 movements
+      while (action == 10)
+        {dance_routine ();
+          action = 0;
+        }
+      
+      //when no object is detected, robot moves forward
+      if ((left == 0) && (right == 0))
+        {eSpeakTalk ("I am moving forward");
+          rForward(0.5, 1);
+          action++;
+          eSpeakTalk ("This is action number %d", action);
+          previousTurn = 0;
+        }
+
+      //when both sensors detect an object, robot moves backward
+      else if ((left == 1) && (right == 1))
+        {eSpeakTalk ("I am moving backward");
+          rBackward(0.5, 1);
+          action++;
+          previousTurn = 0;
+        }
+      
+      //when only left sensor detects an obstacle, robot turns right
+      else if (left == 1)
+        {eSpeakTalk ("I am turning to the right");
+          rTurnRight(.5, 1);
+          action++;
+          {if (previousTurn == 1)
+              two_turn ();
+            else  previousTurn = 1;}
+        }
+  
+      //when only right sensor detects an obstacle, robot turns left
+      else
+        {eSpeakTalk ("I am turning to the left");
+          rTurnLeft(.5, 1);
+          action++;
+          {if (previousTurn == 2)
+              two_turn ();
+            else previousTurn = 2;
+          }}}
+
+  rDisconnect();
+  eSpeakDisconnect ();
+  return 0;
+
+}
+  
+   

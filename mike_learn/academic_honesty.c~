@@ -1,0 +1,27 @@
+
+/***********************************************************************
+ * Name(s): Mike Zou                                                   *
+ * Box(s): 4642                                                        *
+ * Assignment name: Exam 3 Problem Revision                            *
+ * Assignment for 12/07/16                                             *
+ ***********************************************************************/
+
+/* *********************************************************************
+ * Academic honesty certification:                                     *
+ *   Written/online sources used:                                      *
+ *     CSC161 Reading: Character-by-Character Input                    *
+ *       http://www.cs.grinnell.edu/~walker/courses/161.fa16/show-resou*
+ *       rce.php?resourceID=545                                        *
+ *     CSC161 Reading: Strings in c                                    *
+ *       http://www.cs.grinnell.edu/~walker/courses/161.fa16/show-resou*
+ *       rce.php?resourceID=522                                        *
+ *       We used this reading for the use of strcmp function           *
+ *     By Henry M. Walker. Accessed on 10/26/16.                       *
+ *   Help obtained                                                     *
+ *     NONE                                                            *
+ *   My/our signature(s) below confirms that the above list of sources *
+ *   is complete AND that I/we have not talked to anyone else          *
+ *   (e.g., CSC 161 students) about the solution to this problem       *
+ *                                                                     *
+ *   Signature: Mujtaba Aslam, Mike Zou                                *
+ ***********************************************************************/

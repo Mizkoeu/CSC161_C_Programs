@@ -1,0 +1,14 @@
+#include <stdio.h>
+#include <string.h>
+
+#define arrayLen 10;
+
+int main()
+{
+  int i, j;
+  char temp[10];
+  char * array[arrayLen]
+
+
+  return 0;
+}

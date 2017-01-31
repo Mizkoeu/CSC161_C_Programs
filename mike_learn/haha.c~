@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+int main()
+{ int hey;
+  printf ("Gimme a number!:");
+  scanf ("%d", &hey);
+  switch (int (avgLight % 10000))
+    { case 0:
+        printf("it's bloody 0!\n");
+    case 1:
+      printf ("It's one really?\n");
+    case 2:
+      printf ("LOL, Okay, it;s 2 I get it\n");
+              
+
+        }
+}

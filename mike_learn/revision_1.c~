@@ -1,0 +1,19 @@
+#include <stdio.h>
+#include "MyroC.h"
+
+int main()
+{
+  rConnect ("/dev/rfcomm0"); //Connect to robot via Bluetooth
+  int i; 
+
+  for (i = 0; i < 10; i++){
+    int n = 0;
+    while (n <= i)
+      {
+        rBeep (1.0, 880);
+        n++}
+    rBeep(1.0, 0);
+  }
+  rDisconnect ();
+  return 0;
+}
